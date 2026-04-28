@@ -1,0 +1,12 @@
+target/
+*.class
+*.jar
+*.war
+.mvn/
+!.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/MavenWrapperDownloader.java
+.idea/
+*.iml
+.DS_Store
+application-local.properties
+uploads/
