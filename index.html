@@ -9,6 +9,57 @@
 </head>
 <body>
 
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- MODAL AUTH -->
+  <div id="modal-overlay" class="hidden">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="login">Iniciar sesión</button>
+        <button class="modal-tab" data-tab="register">Registrarse</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="form-login" class="modal-form">
+        <h2>Bienvenido de nuevo</h2>
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Contraseña" required />
+        <button type="submit" class="btn-primary">Entrar</button>
+        <p class="modal-switch">¿No tienes cuenta? <a href="#" data-tab="register">Regístrate</a></p>
+      </form>
+
+      <!-- REGISTER -->
+      <form id="form-register" class="modal-form hidden">
+        <h2>Crear cuenta</h2>
+        <input type="text" id="reg-name" placeholder="Nombre completo" required />
+        <input type="email" id="reg-email" placeholder="Email" required />
+        <input type="password" id="reg-password" placeholder="Contraseña (mín. 8 caracteres)" required />
+        <input type="tel" id="reg-phone" placeholder="Teléfono (opcional)" />
+        <button type="submit" class="btn-primary">Crear cuenta</button>
+        <p class="modal-switch">¿Ya tienes cuenta? <a href="#" data-tab="login">Inicia sesión</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- CARRITO SIDEBAR -->
+  <div id="cart-overlay" class="hidden"></div>
+  <aside id="cart-sidebar" class="closed">
+    <div class="cart-header">
+      <h3>Mi Carrito</h3>
+      <button id="cart-close">&times;</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total-price">0,00€</strong>
+      </div>
+      <button class="btn-primary" id="btn-checkout" style="width:100%">Finalizar pedido</button>
+    </div>
+  </aside>
+
   <!-- NAV -->
   <nav id="navbar">
     <div class="logo">FUEL<span>UP</span></div>
@@ -19,13 +70,29 @@
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a href="#productos" class="btn-nav">Comprar ahora</a>
+    <div class="nav-actions">
+      <button class="btn-cart" id="btn-cart">
+        🛒 <span id="cart-count" class="cart-badge hidden">0</span>
+      </button>
+      <div id="nav-auth">
+        <a href="#" class="btn-nav" id="btn-open-auth">Entrar</a>
+      </div>
+      <div id="nav-user" class="hidden">
+        <div class="user-menu">
+          <button class="user-btn" id="user-btn">👤 <span id="user-name"></span> ▾</button>
+          <div class="user-dropdown" id="user-dropdown">
+            <a href="#" id="btn-mis-pedidos">Mis pedidos</a>
+            <a href="#" id="btn-wishlist">Lista de deseos</a>
+            <a href="#" id="btn-logout">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="hamburger" id="hamburger">&#9776;</div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-tag">NUTRICIÓN DE ÉLITE</p>
       <h1>SUPERA TUS<br><span>LÍMITES</span></h1>
@@ -49,77 +116,29 @@
       <h2>Nuestros <span>Productos</span></h2>
       <p class="section-sub">Formulados por expertos en nutrición deportiva</p>
     </div>
-    <div class="productos-grid">
-      <div class="card" data-aos="fade-up">
-        <div class="card-badge">MÁS VENDIDO</div>
-        <div class="card-img protein"></div>
-        <div class="card-body">
-          <h3>Whey Protein Pro</h3>
-          <p>25g de proteína por servicio. Recuperación muscular máxima post-entrenamiento.</p>
-          <div class="card-footer">
-            <span class="price">39,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
+
+    <!-- FILTROS -->
+    <div class="filtros">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="🔍 Buscar producto..." />
       </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-img creatine"></div>
-        <div class="card-body">
-          <h3>Creatina Monohidrato</h3>
-          <p>Aumenta tu fuerza y resistencia. Micronizada para máxima absorción.</p>
-          <div class="card-footer">
-            <span class="price">24,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
+      <div id="categoria-btns" class="categoria-btns">
+        <button class="cat-btn active" data-id="">Todos</button>
       </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-badge nuevo">NUEVO</div>
-        <div class="card-img bcaa"></div>
-        <div class="card-body">
-          <h3>BCAA Essential</h3>
-          <p>Aminoácidos de cadena ramificada 2:1:1 para reducir la fatiga muscular.</p>
-          <div class="card-footer">
-            <span class="price">29,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-img preworkout"></div>
-        <div class="card-body">
-          <h3>Pre-Workout Extreme</h3>
-          <p>Energía explosiva para tus sesiones más duras. Con beta-alanina y cafeína.</p>
-          <div class="card-footer">
-            <span class="price">34,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="400">
-        <div class="card-img omega"></div>
-        <div class="card-body">
-          <h3>Omega 3 Ultra</h3>
-          <p>Ácidos grasos esenciales para la salud cardiovascular y articular.</p>
-          <div class="card-footer">
-            <span class="price">19,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="500">
-        <div class="card-badge oferta">-20%</div>
-        <div class="card-img gainer"></div>
-        <div class="card-body">
-          <h3>Mass Gainer 3000</h3>
-          <p>Volumen y masa muscular. Alta densidad calórica con carbohidratos complejos.</p>
-          <div class="card-footer">
-            <span class="price">44,99€</span>
-            <button class="btn-add">+ Añadir</button>
-          </div>
-        </div>
+      <div class="sort-box">
+        <select id="sort-select">
+          <option value="createdAt,desc">Más recientes</option>
+          <option value="price,asc">Precio: menor a mayor</option>
+          <option value="price,desc">Precio: mayor a menor</option>
+          <option value="name,asc">Nombre A-Z</option>
+        </select>
       </div>
     </div>
+
+    <div class="productos-grid" id="productos-grid">
+      <div class="loading-spinner">Cargando productos...</div>
+    </div>
+    <div class="pagination" id="pagination"></div>
   </section>
 
   <!-- BANNER CTA -->
@@ -127,7 +146,7 @@
     <div class="banner-content">
       <h2>¿Primera compra?</h2>
       <p>Usa el código <strong>FUELUP10</strong> y obtén un <strong>10% de descuento</strong></p>
-      <a href="#contacto" class="btn-primary">Reclamar oferta</a>
+      <a href="#productos" class="btn-primary">Ver productos</a>
     </div>
   </section>
 
@@ -138,36 +157,12 @@
       <h2>Calidad que <span>se nota</span></h2>
     </div>
     <div class="beneficios-grid">
-      <div class="beneficio">
-        <div class="icon">🧪</div>
-        <h3>Testado en laboratorio</h3>
-        <p>Todos nuestros productos pasan controles de calidad certificados por terceros independientes.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon">🌿</div>
-        <h3>Sin aditivos artificiales</h3>
-        <p>Ingredientes naturales y limpios. Sin colorantes ni conservantes innecesarios.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon">🚚</div>
-        <h3>Envío en 48 horas</h3>
-        <p>Pedidos procesados el mismo día. Entrega express a toda España y Europa.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon">💪</div>
-        <h3>Resultados probados</h3>
-        <p>Usados por atletas profesionales y amateurs con resultados verificables.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon">🔄</div>
-        <h3>Devolución gratuita</h3>
-        <p>30 días de garantía de satisfacción. Si no te convence, te devolvemos el dinero.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon">🎯</div>
-        <h3>Asesoramiento nutricional</h3>
-        <p>Equipo de nutricionistas deportivos disponible para guiarte en tu elección.</p>
-      </div>
+      <div class="beneficio"><div class="icon">🧪</div><h3>Testado en laboratorio</h3><p>Todos nuestros productos pasan controles de calidad certificados por terceros independientes.</p></div>
+      <div class="beneficio"><div class="icon">🌿</div><h3>Sin aditivos artificiales</h3><p>Ingredientes naturales y limpios. Sin colorantes ni conservantes innecesarios.</p></div>
+      <div class="beneficio"><div class="icon">🚚</div><h3>Envío en 48 horas</h3><p>Pedidos procesados el mismo día. Entrega express a toda España y Europa.</p></div>
+      <div class="beneficio"><div class="icon">💪</div><h3>Resultados probados</h3><p>Usados por atletas profesionales y amateurs con resultados verificables.</p></div>
+      <div class="beneficio"><div class="icon">🔄</div><h3>Devolución gratuita</h3><p>30 días de garantía de satisfacción. Si no te convence, te devolvemos el dinero.</p></div>
+      <div class="beneficio"><div class="icon">🎯</div><h3>Asesoramiento nutricional</h3><p>Equipo de nutricionistas deportivos disponible para guiarte en tu elección.</p></div>
     </div>
   </section>
 
@@ -181,38 +176,29 @@
       <div class="testimonio">
         <div class="stars">★★★★★</div>
         <p>"La whey protein es increíble. Noto la diferencia en recuperación desde el primer mes. No volvería a otra marca."</p>
-        <div class="autor">
-          <div class="avatar" style="background:#ff6b35">C</div>
-          <div>
-            <strong>Carlos M.</strong>
-            <span>Crossfitter · Madrid</span>
-          </div>
-        </div>
+        <div class="autor"><div class="avatar" style="background:#ff6b35">C</div><div><strong>Carlos M.</strong><span>Crossfitter · Madrid</span></div></div>
       </div>
       <div class="testimonio destacado">
         <div class="stars">★★★★★</div>
         <p>"Llevo 6 meses usando FuelUp y mis marcas personales han mejorado notablemente. Envío rápido y calidad inmejorable."</p>
-        <div class="autor">
-          <div class="avatar" style="background:#00b894">L</div>
-          <div>
-            <strong>Laura G.</strong>
-            <span>Triatleta · Barcelona</span>
-          </div>
-        </div>
+        <div class="autor"><div class="avatar" style="background:#00b894">L</div><div><strong>Laura G.</strong><span>Triatleta · Barcelona</span></div></div>
       </div>
       <div class="testimonio">
         <div class="stars">★★★★★</div>
         <p>"El pre-workout es una bestia. Energía sin ansiedad, perfecto para mis entrenamientos de fuerza matutinos."</p>
-        <div class="autor">
-          <div class="avatar" style="background:#6c5ce7">A</div>
-          <div>
-            <strong>Alejandro R.</strong>
-            <span>Powerlifter · Valencia</span>
-          </div>
-        </div>
+        <div class="autor"><div class="avatar" style="background:#6c5ce7">A</div><div><strong>Alejandro R.</strong><span>Powerlifter · Valencia</span></div></div>
       </div>
     </div>
   </section>
+
+  <!-- MODAL PEDIDOS -->
+  <div id="pedidos-overlay" class="hidden">
+    <div class="modal modal-wide">
+      <button class="modal-close" id="pedidos-close">&times;</button>
+      <h2 style="margin-bottom:1.5rem">Mis Pedidos</h2>
+      <div id="pedidos-list"></div>
+    </div>
+  </div>
 
   <!-- CONTACTO -->
   <section id="contacto">
@@ -227,16 +213,10 @@
           <li>🕐 Lun–Vie: 9:00 – 18:00</li>
         </ul>
       </div>
-      <form class="contacto-form">
+      <form class="contacto-form" id="contacto-form">
         <input type="text" placeholder="Tu nombre" required />
         <input type="email" placeholder="Tu email" required />
-        <select>
-          <option value="">Motivo de contacto</option>
-          <option>Asesoramiento nutricional</option>
-          <option>Pedido / Envío</option>
-          <option>Devoluciones</option>
-          <option>Otro</option>
-        </select>
+        <select><option value="">Motivo de contacto</option><option>Asesoramiento nutricional</option><option>Pedido / Envío</option><option>Devoluciones</option><option>Otro</option></select>
         <textarea placeholder="Tu mensaje..." rows="5" required></textarea>
         <button type="submit" class="btn-primary">Enviar mensaje</button>
       </form>
@@ -248,17 +228,12 @@
     <div class="footer-top">
       <div class="footer-logo">FUEL<span>UP</span></div>
       <div class="footer-links">
-        <a href="#hero">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#testimonios">Testimonios</a>
+        <a href="#hero">Inicio</a><a href="#productos">Productos</a>
+        <a href="#beneficios">Beneficios</a><a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
       </div>
       <div class="footer-social">
-        <a href="#">IG</a>
-        <a href="#">FB</a>
-        <a href="#">YT</a>
-        <a href="#">TK</a>
+        <a href="#">IG</a><a href="#">FB</a><a href="#">YT</a><a href="#">TK</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -267,6 +242,7 @@
     </div>
   </footer>
 
+  <script src="api.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
