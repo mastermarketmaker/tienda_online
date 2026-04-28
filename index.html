@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuelUp | Suplementos Deportivos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="logo">FUEL<span>UP</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#productos" class="btn-nav">Comprar ahora</a>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">NUTRICIÓN DE ÉLITE</p>
+      <h1>SUPERA TUS<br><span>LÍMITES</span></h1>
+      <p class="hero-sub">Suplementos deportivos de alta calidad para atletas que no se conforman con menos.</p>
+      <div class="hero-btns">
+        <a href="#productos" class="btn-primary">Ver productos</a>
+        <a href="#beneficios" class="btn-secondary">Saber más</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span>+5000</span><p>Clientes activos</p></div>
+      <div class="stat"><span>100%</span><p>Natural & puro</p></div>
+      <div class="stat"><span>48h</span><p>Envío express</p></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <div class="section-header">
+      <p class="section-tag">CATÁLOGO</p>
+      <h2>Nuestros <span>Productos</span></h2>
+      <p class="section-sub">Formulados por expertos en nutrición deportiva</p>
+    </div>
+    <div class="productos-grid">
+      <div class="card" data-aos="fade-up">
+        <div class="card-badge">MÁS VENDIDO</div>
+        <div class="card-img protein"></div>
+        <div class="card-body">
+          <h3>Whey Protein Pro</h3>
+          <p>25g de proteína por servicio. Recuperación muscular máxima post-entrenamiento.</p>
+          <div class="card-footer">
+            <span class="price">39,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-img creatine"></div>
+        <div class="card-body">
+          <h3>Creatina Monohidrato</h3>
+          <p>Aumenta tu fuerza y resistencia. Micronizada para máxima absorción.</p>
+          <div class="card-footer">
+            <span class="price">24,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-badge nuevo">NUEVO</div>
+        <div class="card-img bcaa"></div>
+        <div class="card-body">
+          <h3>BCAA Essential</h3>
+          <p>Aminoácidos de cadena ramificada 2:1:1 para reducir la fatiga muscular.</p>
+          <div class="card-footer">
+            <span class="price">29,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-img preworkout"></div>
+        <div class="card-body">
+          <h3>Pre-Workout Extreme</h3>
+          <p>Energía explosiva para tus sesiones más duras. Con beta-alanina y cafeína.</p>
+          <div class="card-footer">
+            <span class="price">34,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-img omega"></div>
+        <div class="card-body">
+          <h3>Omega 3 Ultra</h3>
+          <p>Ácidos grasos esenciales para la salud cardiovascular y articular.</p>
+          <div class="card-footer">
+            <span class="price">19,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-badge oferta">-20%</div>
+        <div class="card-img gainer"></div>
+        <div class="card-body">
+          <h3>Mass Gainer 3000</h3>
+          <p>Volumen y masa muscular. Alta densidad calórica con carbohidratos complejos.</p>
+          <div class="card-footer">
+            <span class="price">44,99€</span>
+            <button class="btn-add">+ Añadir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER CTA -->
+  <section id="banner">
+    <div class="banner-content">
+      <h2>¿Primera compra?</h2>
+      <p>Usa el código <strong>FUELUP10</strong> y obtén un <strong>10% de descuento</strong></p>
+      <a href="#contacto" class="btn-primary">Reclamar oferta</a>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios">
+    <div class="section-header">
+      <p class="section-tag">¿POR QUÉ NOSOTROS?</p>
+      <h2>Calidad que <span>se nota</span></h2>
+    </div>
+    <div class="beneficios-grid">
+      <div class="beneficio">
+        <div class="icon">🧪</div>
+        <h3>Testado en laboratorio</h3>
+        <p>Todos nuestros productos pasan controles de calidad certificados por terceros independientes.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon">🌿</div>
+        <h3>Sin aditivos artificiales</h3>
+        <p>Ingredientes naturales y limpios. Sin colorantes ni conservantes innecesarios.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon">🚚</div>
+        <h3>Envío en 48 horas</h3>
+        <p>Pedidos procesados el mismo día. Entrega express a toda España y Europa.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon">💪</div>
+        <h3>Resultados probados</h3>
+        <p>Usados por atletas profesionales y amateurs con resultados verificables.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon">🔄</div>
+        <h3>Devolución gratuita</h3>
+        <p>30 días de garantía de satisfacción. Si no te convence, te devolvemos el dinero.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon">🎯</div>
+        <h3>Asesoramiento nutricional</h3>
+        <p>Equipo de nutricionistas deportivos disponible para guiarte en tu elección.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="section-header">
+      <p class="section-tag">OPINIONES</p>
+      <h2>Lo que dicen <span>nuestros atletas</span></h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <p>"La whey protein es increíble. Noto la diferencia en recuperación desde el primer mes. No volvería a otra marca."</p>
+        <div class="autor">
+          <div class="avatar" style="background:#ff6b35">C</div>
+          <div>
+            <strong>Carlos M.</strong>
+            <span>Crossfitter · Madrid</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio destacado">
+        <div class="stars">★★★★★</div>
+        <p>"Llevo 6 meses usando FuelUp y mis marcas personales han mejorado notablemente. Envío rápido y calidad inmejorable."</p>
+        <div class="autor">
+          <div class="avatar" style="background:#00b894">L</div>
+          <div>
+            <strong>Laura G.</strong>
+            <span>Triatleta · Barcelona</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <p>"El pre-workout es una bestia. Energía sin ansiedad, perfecto para mis entrenamientos de fuerza matutinos."</p>
+        <div class="autor">
+          <div class="avatar" style="background:#6c5ce7">A</div>
+          <div>
+            <strong>Alejandro R.</strong>
+            <span>Powerlifter · Valencia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contacto-wrapper">
+      <div class="contacto-info">
+        <p class="section-tag">CONTACTO</p>
+        <h2>¿Tienes alguna <span>pregunta?</span></h2>
+        <p>Nuestro equipo de nutricionistas está disponible para ayudarte a elegir el suplemento ideal para tus objetivos.</p>
+        <ul class="contacto-datos">
+          <li>📧 info@fuelup.es</li>
+          <li>📞 +34 900 123 456</li>
+          <li>🕐 Lun–Vie: 9:00 – 18:00</li>
+        </ul>
+      </div>
+      <form class="contacto-form">
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu email" required />
+        <select>
+          <option value="">Motivo de contacto</option>
+          <option>Asesoramiento nutricional</option>
+          <option>Pedido / Envío</option>
+          <option>Devoluciones</option>
+          <option>Otro</option>
+        </select>
+        <textarea placeholder="Tu mensaje..." rows="5" required></textarea>
+        <button type="submit" class="btn-primary">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">FUEL<span>UP</span></div>
+      <div class="footer-links">
+        <a href="#hero">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">IG</a>
+        <a href="#">FB</a>
+        <a href="#">YT</a>
+        <a href="#">TK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 FuelUp. Todos los derechos reservados.</p>
+      <p><a href="#">Política de privacidad</a> · <a href="#">Términos de uso</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
